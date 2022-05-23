@@ -1,0 +1,33 @@
+version: "3"
+services:
+ simple-web:
+  image: simple-go-web
+  build:
+    context: .
+    dockerfile: Dockerfile
+  # depends_on:
+  #   - nginx-proxy
+  environment:
+    - VIRTUAL_HOST=10.207.1.206
+  networks:
+    - local-network
+
+ nginx-proxy:
+  image: jwilder/nginx-proxy
+  ports:
+    - 80:80
+    - 443:443
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+  networks:
+    - local-network
+#  whoami:
+#   image: jwilder/whoami
+#   environment:
+#     - VIRTUAL_HOST=trung.local
+#   networks:
+#     - local-network
+
+networks:
+ local-network
+  name: local-network
