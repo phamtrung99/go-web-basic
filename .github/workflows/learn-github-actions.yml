@@ -13,4 +13,3 @@ jobs:
          tool_name: golint
          level: error
          reporter: github-pr-check
-         workdir: ./
