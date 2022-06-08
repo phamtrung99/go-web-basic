@@ -13,4 +13,4 @@ jobs:
          golangci_lint_flags: "golangci-lint run --out-format=line-number ./main.go"
          tool_name: golint
          level: error
-         reporter: github-pr-check
+         reporter: github-pr-review
