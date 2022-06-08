@@ -1,7 +1,11 @@
 name: reviewdog
 on: [pull_request]
 jobs:
- golint-check:
+ golangci-lint-check:
+  permissions:
+   checks: write
+   contents: read
+   pull-requests: write
   name: runner / golangci-lint (github-pr-review)
   runs-on: ubuntu-latest
   steps:
