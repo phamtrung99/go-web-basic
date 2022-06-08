@@ -18,8 +18,8 @@ jobs:
 
           # Can pass --config flag to change golangci-lint behavior and target
           # directory.
-          golangci_lint_flags: "../../"
-          workdir: subdirectory/
+          golangci_lint_flags: "--config=.github/.golangci.yml ./..."
+          workdir: ../../
 
   # Use golint via golangci-lint binary with "warning" level.
   golint:
@@ -31,7 +31,6 @@ jobs:
       - name: golint
         uses: reviewdog/action-golangci-lint@v2
         with:
-          golangci_lint_flags: "./..."
           tool_name: golint # Change reporter name.
           level: warning # GitHub Status Check won't become failure with this level.
 
@@ -45,7 +44,6 @@ jobs:
       - name: errcheck
         uses: reviewdog/action-golangci-lint@v2
         with:
-          golangci_lint_flags: ""../../""
           tool_name: errcheck
           level: info
 
@@ -71,6 +69,7 @@ jobs:
       - name: golangci-lint w/ github-pr-review
         uses: ./
         with:
-          golangci_lint_flags: ""../../""
+          golangci_lint_flags: "./testdata"
           tool_name: "golangci-lint-github-pr-review"
           reporter: "github-pr-review"
+          workdir: ../../
