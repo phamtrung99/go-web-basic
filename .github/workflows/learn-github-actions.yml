@@ -15,6 +15,7 @@ jobs:
           tool_name: "golangci-lint-github-pr-review"
           reporter: "github-pr-review"
           level: error
+          false_on_error: true
 
 
 #  golint-check:
