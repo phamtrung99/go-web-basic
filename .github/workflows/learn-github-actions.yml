@@ -14,10 +14,11 @@ jobs:
       - uses: reviewdog/action-golangci-lint@v2
         with:
           github_token: ${{ secrets.github_token }}
+          reporter: "github-pr-review"
           golangci_lint_flags: "--enable-all --exclude-use-default=false -D wsl -D testpackage"
           level: "error"
           fail_on_error: "true"
-          reporter: github-pr-review
+          filter_mode: "nofilter"
           
 #  golangci-lint-check:
 #   permissions:
