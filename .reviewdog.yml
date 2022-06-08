@@ -2,3 +2,4 @@ runner:
  golint:
   cmd: golint ./...
   level: error
+  filter-mode: nofilter
