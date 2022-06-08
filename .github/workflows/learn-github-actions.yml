@@ -17,7 +17,6 @@ jobs:
   #         level: error
   #         fail_on_error: "true"
   #         filter_mode: "nofilter"
-
  golint-check:
   runs-on: ubuntu-latest
   steps:
