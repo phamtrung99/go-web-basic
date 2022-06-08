@@ -1,6 +1,0 @@
-runner:
- golint:
-  cmd: golint ./...
-  errorformat:
-   - "%f:%l:%c: %m"
-  level: error
