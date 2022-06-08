@@ -16,7 +16,9 @@ jobs:
           github_token: ${{ secrets.github_token }}
           golangci_lint_flags: "--enable-all --exclude-use-default=false -D wsl -D testpackage"
           level: "error"
-          reporter: github-pr-check
+          fail_on_error: "true"
+          reporter: github-pr-review
+          
 #  golangci-lint-check:
 #   permissions:
 #    checks: write
