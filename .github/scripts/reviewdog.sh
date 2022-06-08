@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -eu
 
-reviewdog -reporter=github-pr-review
+golangci-lint run | reviewdog -f=golangci-lint -name=golangci-github-check -reporter=github-pr-review -level=warning
