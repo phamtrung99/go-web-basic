@@ -47,7 +47,7 @@ func Health(w http.ResponseWriter, r *http.Request) {
 
 //
 func Hello(w http.ResponseWriter, r *http.Request) {
-	w.Write Header(http.StatusOK)
+	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "%s: responding from the go-web-server 👋", serverID)
 }
 
