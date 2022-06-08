@@ -1,15 +1,13 @@
 name: reviewdog
-on: [pull_request]
+on: [push]
 jobs:
-  # NOTE: golangci-lint doesn't report multiple errors on the same line from
-  # different linters and just report one of the errors?
-
   golangci-lint:
     name: runner / golangci-lint
     runs-on: ubuntu-latest
     steps:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
+        
       - name: golangci-lint
         uses: reviewdog/action-golangci-lint@v2
         with:
@@ -18,7 +16,8 @@ jobs:
 
           # Can pass --config flag to change golangci-lint behavior and target
           # directory.
-          golangci_lint_flags: "--config=.github/.golangci.yml ./..."
+          # golangci_lint_flags: "--config=.github/.golangci.yml ./..."
+          
           workdir: ../../
 
   # Use golint via golangci-lint binary with "warning" level.
