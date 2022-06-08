@@ -1,0 +1,30 @@
+linters:
+  enable-all: true
+  disable:
+    - goimports
+    - maligned
+    - gochecknoglobals
+    - gochecknoinits
+    - gosec
+    - gomnd
+    - gocognit
+    - funlen
+
+run:
+  timeout: 20m
+  skip-dirs:
+    - build
+
+  # include test files or not, default is true
+  tests: false
+
+issues:
+  exclude-use-default: true
+
+linters-settings:
+  goconst:
+    min-occurrences: 5
+  gocyclo:
+    min-complexity: 100
+  lll:
+    line-length: 200
