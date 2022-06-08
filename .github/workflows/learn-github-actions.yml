@@ -18,26 +18,27 @@ jobs:
   #         fail_on_error: "true"
   #         filter_mode: "nofilter"
  golint-check:
+  name: runner / golangci-lint (github-pr-review)
   runs-on: ubuntu-latest
   steps:
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
+   - name: Check out code into the Go module directory
+     uses: actions/checkout@v3
       
-      - name: Setup review dog
-        uses: reviewdog/action-setup@v1
+   - name: Setup review dog
+     uses: reviewdog/action-setup@v1
       
-      - name: Install golint 
-        run: go get -u golang.org/x/lint/golint
+   - name: Install golint 
+     run: go get -u golang.org/x/lint/golint
 
-      - name: Go lint check
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: | 
-         bash .github/scripts/reviewdog.sh
-        with:
-         tool_name: "golint"
-         reporter: "github-pr-review"
-         level: error
-         fail_on_error: "true"
-         filter_mode: "nofilter"
+   - name: Go lint check
+     env:
+      REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     run: | 
+      bash .github/scripts/reviewdog.sh
+     with:
+      tool_name: "golint"
+      reporter: "github-pr-review"
+      level: error
+      fail_on_error: "true"
+      filter_mode: "nofilter"
          
