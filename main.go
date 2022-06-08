@@ -41,7 +41,7 @@ func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 }
 
 func Health(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
+	w.Wr iteHeader(http.StatusOK)
 	fmt.Fprintf(w, "%s: ok", serverID)
 }
 
