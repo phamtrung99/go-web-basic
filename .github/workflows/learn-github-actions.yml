@@ -1,5 +1,5 @@
 name: learn-github-actions
-on: [push]
+on: [pull_request]
 jobs:
   reviewdog-github-check:
     permissions:
@@ -9,20 +9,12 @@ jobs:
     name: reviewdog (github-check)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-go@v3
+      # ...
+      - uses: reviewdog/action-setup@v1
         with:
-          go-version: 1.17
-
-      - uses: actions/checkout@v3
-
-      - name: Install linters
-        run: go get -u golang.org/x/lint/golint
-
-      - name: Setup reviewdog
-        uses: reviewdog/action-setup@v1
-
+          reviewdog_version: latest # Optional. [latest,nightly,v.X.Y.Z]
       - name: Run reviewdog
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          golint ./... | reviewdog -f=golint -name=github-pr-review -reporter=github-pr-review
+          reviewdog -reporter=github-pr-review -runners=golint,govet
