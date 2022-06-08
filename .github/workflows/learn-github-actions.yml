@@ -12,7 +12,8 @@ jobs:
      uses: reviewdog/action-setup@v1
       
    - name: Install golint 
-     run: go get -u golang.org/x/lint/golint
+     run: |
+      bash .github/scripts/setup_golint.sh
 
    - name: Go lint check
      env:
