@@ -9,6 +9,9 @@ jobs:
       
       - name: Setup review dog
         uses: reviewdog/action-setup@v1
+      
+      - name: Install golint 
+        run: go get -u golang.org/x/lint/golint
 
       - name: Go lint check
         env:
