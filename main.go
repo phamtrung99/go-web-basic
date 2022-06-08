@@ -41,7 +41,11 @@ func Midd le(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 }
 
 func Health(w http.ResponseWriter, r *http.Request) {
+<<<<<<< Updated upstream
 	w.WriteHeader(http.StatusOK)
+=======
+	   w.WriteHeader(http.StatusOK)
+>>>>>>> Stashed changes
 	fmt.Fprintf(w, "%s: ok", serverID)
 }
 
