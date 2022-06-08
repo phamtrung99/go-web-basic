@@ -33,7 +33,7 @@ func main() {
 }
 
 //
-func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
+func Midd le(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		l.Println(r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
 		f(w, r)
