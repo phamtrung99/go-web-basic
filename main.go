@@ -32,7 +32,7 @@ func main() {
 	}
 }
 
-// 
+//
 func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		l.Println(r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
@@ -40,20 +40,14 @@ func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
-<<<<<<< Updated upstream
-
 func Health(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-=======
-func Health(w http.ResponseWriter, r *http.Request) {
-	   w.WriteHeader(http.StatusOK)
->>>>>>> Stashed changes
 	fmt.Fprintf(w, "%s: ok", serverID)
 }
 
-// 
+//
 func Hello(w http.ResponseWriter, r *http.Request) {
-	w.Writ e Header(http.StatusOK)
+	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "%s: responding from the go-web-server 👋", serverID)
 }
 

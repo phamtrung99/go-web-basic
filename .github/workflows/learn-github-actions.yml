@@ -8,12 +8,12 @@ jobs:
       - name: Check out code into the Go module directory
         uses: actions/checkout@v3
 
-      - name: golangci-lint w/ github-pr-review
+      - name: golangci-lint w/ github-pr-check
         uses: reviewdog/action-golangci-lint@v2
         with:
           golangci_lint_flags: "./main.go"
-          tool_name: "golangci-lint-github-pr-review"
-          reporter: "github-pr-review"
+          tool_name: "golangci-lint-github-pr-check"
+          reporter: "github-pr-check"
           level: error
           fail_on_error: "true"
 
