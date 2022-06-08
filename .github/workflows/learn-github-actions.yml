@@ -11,7 +11,7 @@ jobs:
       - name: golangci-lint
         uses: reviewdog/action-golangci-lint@v2
         with:
-          golangci_lint_flags: "./..."
+          golangci_lint_flags: "./*.go"
           tool_name: "golangci-lint"
           reporter: "github-pr-review"
           level: error
