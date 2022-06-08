@@ -13,7 +13,7 @@ jobs:
         with:
           golangci_lint_flags: "./main.go"
           tool_name: "golangci-lint-github-pr-review"
-          reporter: "github-pr-review"
+          reporter: "github-pr-check"
           level: error
           fail_on_error: "true"
 
