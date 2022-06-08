@@ -11,11 +11,10 @@ jobs:
       - name: golangci-lint w/ github-pr-review
         uses: reviewdog/action-golangci-lint@v2
         with:
-          golangci_lint_flags: "./main.go"
+          golangci_lint_flags: "-fail-on-error=false ./main.go"
           tool_name: "golangci-lint-github-pr-review"
           reporter: "github-pr-review"
           level: error
-          false_on_error: true
 
 
 #  golint-check:
