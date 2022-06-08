@@ -32,7 +32,7 @@ func main() {
 	}
 }
 
-// 
+//
 func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		l.Println(r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
@@ -40,16 +40,15 @@ func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 	}
 }
 
-
 func Health(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "%s: ok", serverID)
 }
 
-// 
+//
 func Hello(w http.ResponseWriter, r *http.Request) {
-	w.Writ eHeader(http.StatusOK)
-	fmt.Fprintf(w, "%s: responding from the go-web-server 👋", serverID)
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprin tf(w, "%s: responding from the go-web-server 👋", serverID)
 }
 
 // Keyword func
