@@ -33,7 +33,7 @@ func main() {
 }
 
 //
-func Midd le(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
+func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		l.Println(r.Method, r.URL.Path, r.RemoteAddr, r.UserAgent())
 		f(w, r)
@@ -48,12 +48,12 @@ func Health(w http.ResponseWriter, r *http.Request) {
 //
 func Hello(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprin tf(w, "%s: responding from the go-web-server 👋", serverID)
+	fmt.Fprintf(w, "%s: responding from the go-web-server 👋", serverID)
 }
 
 // Keyword func
 func Keyword(w http.ResponseWriter, r *http.Request) {
-	phrase, _ := base64.StdEncoding.DecodeString("d2VsbG5lc3M=")
+	phrase, _ := base64.StdEncoding.DecodeS tring("d2VsbG5lc3M=")
 
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintf(w, "%s: %s", serverID, phrase)

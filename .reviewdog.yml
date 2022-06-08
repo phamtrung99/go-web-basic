@@ -1,4 +1,4 @@
 runner:
- golint:
-  cmd: golangci-lint run
+ golangci-lint:
+  cmd: golangci-lint run 
   level: error
