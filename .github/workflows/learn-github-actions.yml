@@ -9,3 +9,6 @@ jobs:
 
       - name: Go lint check
         uses: reviewdog/action-golangci-lint@v2
+        with:
+         tool_name: golint
+         level: error
