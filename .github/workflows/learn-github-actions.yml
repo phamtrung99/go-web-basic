@@ -10,7 +10,7 @@ jobs:
       - name: Go lint check
         uses: reviewdog/action-golangci-lint@v2
         with:
-         golangci_lint_flags: "golangci-lint run ./main.go"
          tool_name: golint
          level: error
          reporter: github-pr-check
+         workdir: ./
