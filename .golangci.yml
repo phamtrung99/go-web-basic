@@ -5,10 +5,11 @@ linters:
     - maligned
     - gochecknoglobals
     - gochecknoinits
-    - gosec
+    - gosec 
     - gomnd
     - gocognit
     - funlen
+    - golint
 
 run:
   timeout: 20m
