@@ -1,7 +1,51 @@
 name: reviewdog
 on: [pull_request]
 jobs:
-  # golangci-lint-github-pr-review:
+  golangci-lint:
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+    if: github.event_name == 'pull_request'
+    name: runner / golangci-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: reviewdog/action-golangci-lint@v2
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: "github-pr-review"
+          golangci_lint_flags: "--enable-all --exclude-use-default=false -D wsl -D testpackage"
+          level: "error"
+          fail_on_error: "true"
+          filter_mode: "nofilter"
+          
+#  golangci-lint-check:
+#   permissions:
+#    checks: write
+#    contents: read
+#    pull-requests: write
+#   name: runner / golangci-lint (github-pr-review)
+#   runs-on: ubuntu-latest
+#   steps:
+#    - name: Check out code into the Go module directory
+#      uses: actions/checkout@v3
+      
+#    - name: Setup review dog
+#      uses: reviewdog/action-setup@v1
+      
+#    - name: Install golint 
+#      run: |
+#       bash .github/scripts/setup_golint.sh
+
+#    - name: Go lint check
+#      env:
+#       REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      run: | 
+#       bash .github/scripts/reviewdog.sh
+     
+
+# golangci-lint-github-pr-review:
   #   name: runner / golangci-lint (github-pr-review)
   #   runs-on: ubuntu-latest
   #   steps:
@@ -17,27 +61,3 @@ jobs:
   #         level: error
   #         fail_on_error: "true"
   #         filter_mode: "nofilter"
- golint-check:
-  runs-on: ubuntu-latest
-  steps:
-      - name: Check out code into the Go module directory
-        uses: actions/checkout@v3
-      
-      - name: Setup review dog
-        uses: reviewdog/action-setup@v1
-      
-      - name: Install golint 
-        run: go get -u golang.org/x/lint/golint
-
-      - name: Go lint check
-        env:
-          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: | 
-         bash .github/scripts/reviewdog.sh
-        with:
-         tool_name: "golint"
-         reporter: "github-pr-review"
-         level: error
-         fail_on_error: "true"
-         filter_mode: "nofilter"
-         

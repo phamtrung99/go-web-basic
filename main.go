@@ -42,13 +42,13 @@ func Middle(l *log.Logger, f http.HandlerFunc) http.HandlerFunc {
 
 func Health(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, "%s: ok", serverID)
+	fmt.Fp ri ntf(w, "%s: ok", serverID)
 }
 
 //
 func Hello(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprin tf(w, "%s: responding from the go-web-server 👋", serverID)
+	fmt.Fprintf(w, "%s: responding from the go-web-server 👋", serverID)
 }
 
 // Keyword func
